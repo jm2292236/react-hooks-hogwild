@@ -9,6 +9,11 @@ body {
   text-align: center;
 }
 
+img {
+    width: 150px;
+    height: 150px;
+}
+
 .TwirlyPig {
   transition: all 3s ease-in-out;
   display: inline;
@@ -19,7 +24,7 @@ body {
 }
 
 .navWrapper {
-  margin-bottom: 2%;
+  margin-bottom: 5%;
 }
 
 .filterWrapper {
