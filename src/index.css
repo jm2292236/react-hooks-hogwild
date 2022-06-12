@@ -4,6 +4,11 @@ body {
   font-family: sans-serif;
 }
 
+img {
+    width: 150px;
+    height: 150px;
+}
+
 .App {
   margin: 0% 5% 0% 5%;
   text-align: center;
