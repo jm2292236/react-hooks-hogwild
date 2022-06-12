@@ -9,7 +9,7 @@ function Hog({ name, image, specialty, greased, weight, medal, visible }) {
 
 
 
-    function renderDetails() {
+    function hogDetails() {
         return (
             // Show-Hide the details when user clicks the tile
             <div className="extra content">
@@ -32,7 +32,7 @@ function Hog({ name, image, specialty, greased, weight, medal, visible }) {
                 <h1>{name}</h1>
             </div>
 
-            {showDetails ? renderDetails() :  null}
+            {showDetails ? hogDetails() :  null}
         </div>                    
     )
 }

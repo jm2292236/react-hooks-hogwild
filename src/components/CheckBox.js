@@ -3,7 +3,7 @@ import React from 'react';
 const Checkbox = ({ label, value, onChange }) => {
     return (
       <label>
-        <input type="checkbox" checked={value} onChange={onChange} />
+        <input className="ui toggle checkbox" type="checkbox" checked={value} onChange={onChange} />
         {label}
       </label>
     );
