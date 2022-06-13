@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Resusable checkbox component with label included
 const Checkbox = ({ label, value, onChange }) => {
     return (
       <label>

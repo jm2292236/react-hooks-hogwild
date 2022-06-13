@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Nav from "./Nav";
-// import FilterBar from "./FilterBar";
 import HogList from "./HogList";
 
 import hogs from "../porkers_data";
@@ -18,14 +17,19 @@ function App() {
         });
 
 
-    const hogsSorted = 
-        hogsFiltered.sort((firstHog, secondHog) => {
-            if (sortHogs === "weight") {
-                return firstHog.weight - secondHog.weight;
-            } else {
-                return firstHog.name.localeCompare(secondHog.name);
-            }
-        });
+        const hogsSorted = 
+        sortHogs === "name" ?
+        hogsFiltered.sort((firstHog, secondHog) => 
+            // return firstHog.name.localeCompare(secondHog.name);
+            {
+                    const f = firstHog.name.toLocaleLowerCase();
+                    const s = secondHog.name.toLocaleLowerCase();
+                    return f === s ? 0 : f > s ? 1 : -1;
+                }
+            )
+            :
+            hogsFiltered.sort((firstHog, secondHog) => {return firstHog.weight - secondHog.weight;})
+        
     
     
 
@@ -39,22 +43,16 @@ function App() {
         
     
     return (
-        <div  className="ui grid container">
-            {/* <div className="sixteen wide column centered"> */}
-            {/* <div> */}
+        <div >
+            <div>
                 <Nav 
                     showOnlyGreased={showOnlyGreased} onChangeShowOnlyGreased={handleShowOnlyGreased} 
                     sortHogs={sortHogs} onChangeSortHogs={handleSortHogs}
                 />
-            {/* </div> */}
+            </div>
 
-            {/* <div className="sixteen wide column centered"> */}
-            {/* <div className="ui eight wide column">
-                <FilterBar showOnlyGreased={showOnlyGreased} onChangeShowOnlyGreased={handleShowOnlyGreased} />
-            </div> */}
-
-            <div className="ui eight wide column">
-                <HogList hogs={hogsFiltered}/>
+            <div className="ui grid container App">
+                <HogList hogs={hogsSorted}/>
             </div>
         </div>
 	);

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
-function Hog({ name, image, specialty, greased, weight, medal, visible }) {
+function Hog({ name, image, specialty, greased, weight, medal }) {
     const [showDetails, setShowDetails] = useState(false);
+    const [visible, setVisible] = useState(true);
 
     function handleHogClick() {
         setShowDetails(showDetails => !showDetails);
@@ -24,15 +25,25 @@ function Hog({ name, image, specialty, greased, weight, medal, visible }) {
 
     return (
         <div className="ui card four wide column" onClick={handleHogClick}>
-            <div>
-                <img src={image} alt="Showing hog"/>
-            </div>
+            <button className="ui button" onClick={() => setVisible(visible => !visible)}>
+                {visible ? "Hide" : "Show"} this Hog
+            </button>
 
-            <div className="content">
-                <h1>{name}</h1>
-            </div>
+            {visible ? 
+                <React.Fragment>
+                    <div>
+                        <img src={image} alt="hog"/>
+                    </div>
 
-            {showDetails ? hogDetails() :  null}
+                    <div className="content">
+                        <h1>{name}</h1>
+                    </div>
+
+                    {showDetails ? hogDetails() :  null}
+                </React.Fragment>
+            :
+            null
+            }
         </div>                    
     )
 }

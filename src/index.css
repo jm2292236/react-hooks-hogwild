@@ -9,6 +9,17 @@ img {
     height: 150px;
 }
 
+.filterBar {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.filterChild {
+    flex: 1;
+}
+
 .App {
   margin: 0% 5% 0% 5%;
   text-align: center;

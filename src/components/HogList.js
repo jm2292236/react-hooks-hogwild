@@ -13,10 +13,6 @@ function HogsList({ hogs }) {
         hogs.map(hog => {
             console.log("map running...");
             return (
-                // { <button onClick={() => handleVisibleBtnClick(hog.name)}>
-                //     {visible ? "Hide" : "Show"}
-                // </button>}
-            
                 <Hog 
                     key={uuid()}
                     name={hog.name} 
@@ -25,7 +21,6 @@ function HogsList({ hogs }) {
                     greased={hog.greased}
                     weight={hog.weight}
                     medal={hog["highest medal achieved"]}
-                    // visible={visible}
                 />
             )
         });
